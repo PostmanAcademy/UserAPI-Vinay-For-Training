@@ -1,0 +1,9 @@
+name: Staging Environment
+values:
+  - key: baseUrl
+    value: 'https://customer-education.postmanlabs.com'
+    enabled: true
+  - key: apiKey
+    value: '{{vault:api}}'
+    enabled: true
+color: 240
