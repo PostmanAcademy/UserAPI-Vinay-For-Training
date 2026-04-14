@@ -4,7 +4,6 @@ values:
     value: 'https://customer-education.postmanlabs.com'
     enabled: true
   - key: apiKey
-    value: '{{vault:api}}'
+    value: '1234'
     enabled: true
-    type: secret
 color: 240
