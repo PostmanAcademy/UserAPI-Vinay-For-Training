@@ -3,7 +3,7 @@ description: this is for webinar
 variables:
   baseUrl: /
 auth:
-  - id: 3259e0d0-0863-44f9-abbb-de0effd8433c
+  - id: 60a7486b-cb00-48ae-9e17-4b426c1e3d6d
     type: apikey
     name: apikey auth
     credentials:

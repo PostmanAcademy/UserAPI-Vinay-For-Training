@@ -1,0 +1,37 @@
+$kind: http-request
+name: Register a new user
+description: |-
+  ## Register a New User
+
+  Creates a new user account in the system. On success, returns the newly created user's details along with an authentication token that can be used for subsequent authenticated requests.
+
+  ### Request Body
+  | Field      | Type   | Required | Description                        |
+  |------------|--------|----------|------------------------------------|
+  | `username` | string | Yes      | The desired username for the account |
+  | `password` | string | Yes      | The password for the account       |
+
+  ### Responses
+  | Status | Description                                                  |
+  |--------|--------------------------------------------------------------|
+  | `201`  | User registered successfully. Returns user ID, username, and auth token. |
+  | `500`  | Internal server error. Returns an error message.            |
+
+  ### Authentication
+  This endpoint requires an `X-API-Key` header. Include your API key with every request.
+
+  > **Note:** Store the returned `token` securely — it is required to authenticate future requests on behalf of this user.
+url: '{{baseUrl}}/v1/users/register'
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "username": "string",
+      "password": "string"
+    }
+examples: ./.resources/Register a new user.resources/examples
+order: 1000

@@ -1,0 +1,56 @@
+$kind: http-request
+description: |-
+  ## Register a New User
+
+  Creates a new user account in the system. On success, returns the newly created user's details including their unique `id` and `username`.
+
+  ### Request Body
+  | Field      | Type   | Required | Description                        |
+  |------------|--------|----------|------------------------------------|
+  | `username` | string | ✅ Yes   | The desired username for the account |
+  | `password` | string | ✅ Yes   | The account password               |
+
+  ### Response (201 Created)
+  | Field      | Type   | Description                          |
+  |------------|--------|--------------------------------------|
+  | `id`       | string | Unique identifier for the new user   |
+  | `username` | string | The registered username              |
+
+  ### Post-Response Behaviour
+  After a successful registration, the following variables are automatically set for use in downstream requests:
+  - `username` — the registered username
+  - `id` — the new user's unique ID
+  - `password` — the password used during registration
+
+  ### Errors
+  | Status | Description                                      |
+  |--------|--------------------------------------------------|
+  | `400`  | Bad request — missing or invalid fields          |
+  | `409`  | Conflict — a user with that username already exists |
+url: '{{baseUrl}}/v1/users/register'
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "username": "{{$randomUserName}}",
+      "password": "{{$randomPassword}}"
+    }
+scripts:
+  - type: afterResponse
+    code: |
+      pm.test("Status code is 201", function () {
+        pm.response.to.have.status(201);
+      });
+
+      const jsonData = pm.response.json();
+         pm.variables.set("username", jsonData.username);
+         pm.variables.set("id", jsonData.id);
+      const requestBody = JSON.parse(pm.request.body)
+         pm.variables.set("password", requestBody.password);
+    language: text/javascript
+examples: ./.resources/Register a new user.resources/examples
+order: 1000

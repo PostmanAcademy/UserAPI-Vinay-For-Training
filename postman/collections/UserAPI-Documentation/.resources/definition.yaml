@@ -1,0 +1,12 @@
+$kind: collection
+description: this is for webinar
+variables:
+  baseUrl: /
+auth:
+  - id: 9e3438ad-8629-42da-b19c-f75556d560e4
+    type: apikey
+    name: apikey auth
+    credentials:
+      key: X-API-Key
+      value: "{{apiKey}}"
+      in: header

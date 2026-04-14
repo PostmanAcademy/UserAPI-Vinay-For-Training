@@ -1,0 +1,28 @@
+$kind: http-example
+name: User not found
+request:
+  url: "{{baseUrl}}/v1/users/:id"
+  method: GET
+  headers:
+    - key: Accept
+      value: application/json
+    - key: X-API-Key
+      value: <API Key>
+      description: "Added as a part of security scheme: apikey"
+  pathVariables:
+    id: "4691"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string"
+      }
+order: 8000
