@@ -1,0 +1,10 @@
+name: Stage
+values:
+  - key: baseUrl
+    value: 'https://customer-education.postmanlabs.com'
+    enabled: true
+  - key: apiKey
+    value: '{{vault:api}}'
+    enabled: true
+    type: secret
+color: 240

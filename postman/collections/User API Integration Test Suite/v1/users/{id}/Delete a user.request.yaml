@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{baseUrl}}/v1/users/:id"
+method: DELETE
+headers:
+  Accept: application/json
+pathVariables:
+  id: "4691"
+body:
+  type: text
+  content: ""
+examples: ./.resources/Delete a user.resources/examples
+order: 3000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+        pm.response.to.have.status(200);
+      });
