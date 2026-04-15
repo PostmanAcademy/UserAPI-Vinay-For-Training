@@ -1,0 +1,12 @@
+$kind: collection
+description: for practice
+variables:
+  baseUrl: /
+auth:
+  - id: a00f4834-a16a-4d97-b35a-5143964d65a1
+    type: apikey
+    name: apikey auth
+    credentials:
+      key: X-API-Key
+      value: "{{apiKey}}"
+      in: header
