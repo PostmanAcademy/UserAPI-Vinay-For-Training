@@ -1,9 +1,8 @@
 $kind: collection
+name: User API Integration Tests
 description: for practice
-variables:
-  baseUrl: /
 auth:
-  - id: a00f4834-a16a-4d97-b35a-5143964d65a1
+  - id: b3545068-2904-4059-8969-97cfdaad729c
     type: apikey
     name: apikey auth
     credentials:

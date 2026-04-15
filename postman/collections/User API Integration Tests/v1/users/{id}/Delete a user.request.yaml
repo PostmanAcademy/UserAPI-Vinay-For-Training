@@ -1,18 +1,13 @@
 $kind: http-request
-name: Delete a user
 url: "{{baseUrl}}/v1/users/:id"
 method: DELETE
 headers:
   Accept: application/json
 pathVariables:
-  - key: id
-    value: "{{id}}"
-    $type: ""
+  id: "{{id}}"
 body:
   type: text
   content: ""
-examples: ./.resources/Delete a user.resources/examples
-order: 3000
 scripts:
   - type: afterResponse
     code: |-
@@ -20,3 +15,5 @@ scripts:
         pm.response.to.have.status(200);
       });
     language: text/javascript
+examples: ./.resources/Delete a user.resources/examples
+order: 2000

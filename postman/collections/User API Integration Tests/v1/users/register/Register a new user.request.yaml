@@ -9,11 +9,9 @@ body:
   type: json
   content: |-
     {
-      "username": "{{$randomUserName}}",
-      "password": "{{$randomPassword}}"
+       "username": "{{$randomUserName}}",
+       "password": "{{$randomPassword}}"
     }
-examples: ./.resources/Register a new user.resources/examples
-order: 1000
 scripts:
   - type: afterResponse
     code: |
@@ -27,3 +25,5 @@ scripts:
       const requestBody = JSON.parse(pm.request.body)
          pm.variables.set("password", requestBody.password);
     language: text/javascript
+examples: ./.resources/Register a new user.resources/examples
+order: 1000
